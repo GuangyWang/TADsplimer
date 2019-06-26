@@ -20,7 +20,7 @@ Installation of TADsplimer
 ----------
 
 The docker can be obtained from docker.io with the command.
-  -C  ConfigFile		
+    -C  ConfigFile		
 
 
 Execution of TADsplimer
