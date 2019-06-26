@@ -26,6 +26,10 @@ The docker can be directly downloaded from dockerhub(https://hub.docker.com/r/gu
 
 Execution
 ----------
+In general, TADsplimer involves following command line options:
+
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+
 
 
 
