@@ -59,7 +59,11 @@ split TAD detection using two contact maps as input files
 		set as 0: output TADs split in both two contact maps, 
 		set as 1: output TADs split in contact map1, set as 2: 
 		output TADs split in contact map2 (default: 0)
-		 
+
+The following commands can be used to detect TAD split and merge events.
+
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py split_TADs -c /data/simulation_merge.txt,/data/simulation_split.txt --contact_maps_aliases merge,split -o /data/output
+
 TAD_calculator:
 
 topological domain identification
@@ -79,36 +83,12 @@ topological domain identification
 	--sub_map SUB_MAP
 		Set to 1 to output sub contact maps and TADs, else set 
 		to 0 to cancel this analysis. (default: 1)
-		 
 
-split_TADs_alternate:
+The following commands can be used to detect TADs.
 
-split TAD detection using two contact maps and detected TADs for these two contact maps as input files
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py TAD_calculator -c /data/simulation_merge.txt -u 1.7 -d 0.2 -o /data/output
+	 
 
-	-h, --help            show this help message and exit
-	-c, --contact_maps CONTACT_MAP
-		paths to Hi-C contact maps in two conditions. paths must 
-		be separated by the comma ','. (default: None)
-	--contact_maps_aliases ALIASES
-		A set of short aliases for the contact map. Paths must be 
-		separated by the comma ','. (default: None)
-	-t, --TAD TAD
-		input files of TADs for two compared Hi-C contact maps. 
-		Paths must be separated by the comma ','. (default: None)
-	-u, --up_cutoff UP
-	  	up cutoff for two compared Hi-C contact maps, paths
-		must be separated by the comma ','. (default: 0,0)
-	-j, --adjust_quality ADJUST_QUALITY
-	  	set as 1 to normalize sequence quality for two Hi-C contact 
-		maps, set as 0 not to normalize sequence quality for two 
-		Hi-C contact maps (default: 0)
-	-o, --output OUTPUT
-	  	path to output files (default: None)
-	-d, --split_direction DIRECTION
-	  	set as 0: output TADs split in both two contact maps,
-		set as 1: output TADs split in contact map 1, set as 2: 
-		output TADs split in contact map 2 (default: 0)
-		 
 TAD_similarity:
 
 calculating four similarity scores for given TADs
@@ -123,6 +103,8 @@ calculating four similarity scores for given TADs
 	-o, --output OUTPUT
 		path to output files (default: None)
 		 
+The following commands can be used to calculate four similarity scores for given TADs.
 
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
 
 
