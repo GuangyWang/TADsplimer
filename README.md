@@ -50,9 +50,9 @@ split TAD detection using two contact maps as input files
 		paths for down cutoff of two contact maps, paths must 
 		be separated by the comma ','. (default: None)
   	-j, --adjust_quality ADJUST_QUALITY
-		set as 1 to normalize sequence quality for two Hi-C 
-		contact maps, set as 0 not to normalize sequence quality 
-		for two Hi-C contact maps (default: 0)
+		set as 0 to auto optimize up_cutoff and down_cutoff, 
+		set as 1 not auto optimize up_cutoff and down_cutoff
+		(default: 0)
   	-o, --output OUTPUT
 		path to output files (default: None)
   	-d, --split_direction DIRECTION
