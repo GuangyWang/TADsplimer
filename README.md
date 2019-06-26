@@ -26,11 +26,50 @@ The docker can be directly downloaded from dockerhub(https://hub.docker.com/r/gu
 
 Execution
 ----------
-In general, TADsplimer involves following command line options:
+In general, TADsplimer can be executed by following command line options:
 
 	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
+TADsplimer involves following command line options:
 
+split_TADs: 
+	split TAD detection using two contact maps as input files
+
+	-h, --help            show this help message and exit
+	-c, --contact_maps CONTACT_MAP
+		paths to two contact maps. paths must be separated by
+		the comma ','. (default: None)
+  	--contact_maps_aliases
+                A set of short aliases for two contact maps. Aliases
+                must be separated by the comma ','. (default: None)
+  	--up_cutoff
+                paths for up cutoff of two contact maps,paths must be
+		separated by the comma ','. (default: None)
+  	--down_cutoff
+                paths for down cutoff of two contact maps, paths must
+		be separated by the comma ','. (default: None)
+  	-j, --adjust_quality ADJUST_QUALITY
+                set as 1 to normalize sequence quality for two Hi-C
+                contact maps, set as 0 not to normalize sequence
+                quality for two Hi-C contact maps (default: 0)
+  	-o, --output OUTPUT
+                path to output files (default: None)
+  	-d, --split_direction DIRECTION
+                set as 0: output TADs split in both two contact maps,
+                set as 1: output TADs split in contact map1, set as 2:
+                output TADs split in contact map2 (default: 0)
+		 
+TAD_calculator: topological domain identification
+
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+
+split_TADs_alternate: split TAD detection using two contact maps and detected TADs for these two contact maps as input files
+
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+
+TAD_similarity: calculating four similarity scores for given regions
+
+	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
 
 
