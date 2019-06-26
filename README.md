@@ -19,7 +19,7 @@ User should include the PATH of above mentioned libraries / packages inside thei
 Installation
 ----------
 
-The docker can be directly downloaded from dockerhub(https://hub.docker.com/r/guangywang/tadsplimer) with the command.
+The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/guangywang/tadsplimer) with the following command.
 
 	docker push guangywang/tadsplimer		 
 
