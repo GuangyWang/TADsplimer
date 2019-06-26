@@ -46,18 +46,18 @@ split_TADs:
 		paths for up cutoff of two contact maps,paths must be 
 		separated by the comma ','. (default: None)
   	--down_cutoff
-                paths for down cutoff of two contact maps, paths must
+		paths for down cutoff of two contact maps, paths must 
 		be separated by the comma ','. (default: None)
   	-j, --adjust_quality ADJUST_QUALITY
-                set as 1 to normalize sequence quality for two Hi-C
-                contact maps, set as 0 not to normalize sequence
-                quality for two Hi-C contact maps (default: 0)
+		set as 1 to normalize sequence quality for two Hi-C 
+		contact maps, set as 0 not to normalize sequence quality 
+		for two Hi-C contact maps (default: 0)
   	-o, --output OUTPUT
-                path to output files (default: None)
+		path to output files (default: None)
   	-d, --split_direction DIRECTION
-                set as 0: output TADs split in both two contact maps,
-                set as 1: output TADs split in contact map1, set as 2:
-                output TADs split in contact map2 (default: 0)
+		set as 0: output TADs split in both two contact maps, 
+		set as 1: output TADs split in contact map1, set as 2: 
+		output TADs split in contact map2 (default: 0)
 		 
 TAD_calculator: topological domain identification
 
