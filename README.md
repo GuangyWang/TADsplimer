@@ -1,8 +1,12 @@
-# TADsplimer
+# TADsplimer - a pipeline for analysising TAD splitting and merging
+
+Introduction
+----------
 
 This pipeline is designed for automated end-to-end analysising TAD splitting and merging. 
 
-# Required packages for executing TADsplimer
+Required packages for executing TADsplimer
+----------
 
 When executing TADsplimer, user should install following packages / libraries in the system:
 1. R environment (we have used 4.1.11)
@@ -12,7 +16,8 @@ When executing TADsplimer, user should install following packages / libraries in
 
 User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. 
 
-# Execution of basic ATAC-seq pipeline
+Execution of basic ATAC-seq pipeline
+----------
 
 
 
