@@ -40,22 +40,22 @@ split TAD detection using two contact maps as input files
 	-c, --contact_maps CONTACT_MAP
 		paths to two contact maps. paths must be separated by
 		the comma ','. (default: None)
-  	--contact_maps_aliases
+	--contact_maps_aliases
                 A set of short aliases for two contact maps. Aliases
 		must be separated by the comma ','. (default: None)
-  	-u, --up_cutoff UP_CUTOFF
+	-u, --up_cutoff UP_CUTOFF
 		paths for up cutoff of two contact maps,paths must be 
 		separated by the comma ','. (default: None)
-  	-d, --down_cutoff DOWN_CUTOFF
+	-d, --down_cutoff DOWN_CUTOFF
 		paths for down cutoff of two contact maps, paths must 
 		be separated by the comma ','. (default: None)
-  	-j, --adjust_quality ADJUST_QUALITY
+	-j, --adjust_quality ADJUST_QUALITY
 		set as 0 to auto optimize up_cutoff and down_cutoff, 
 		set as 1 not auto optimize up_cutoff and down_cutoff
 		(default: 0)
-  	-o, --output OUTPUT
+	-o, --output OUTPUT
 		path to output files (default: None)
-  	-d, --split_direction DIRECTION
+	-d, --split_direction DIRECTION
 		set as 0: output TADs split in both two contact maps, 
 		set as 1: output TADs split in contact map1, set as 2: 
 		output TADs split in contact map2 (default: 0)
@@ -73,7 +73,7 @@ topological domain identification
 		down cutoff for Hi-C contact map detection (default: 0)
 	-o, --TAD_output OUTPUT
 		path for the output file of TADs (default: None)
-	-p PLOT, --TAD_plot PLOT
+	-p, --TAD_plot PLOT
 		Set to 1 to plot the contact map and TAD, else set to 
 		0 to cancel this analysis. (default: 1)
 	--sub_map SUB_MAP
@@ -85,26 +85,26 @@ split_TADs_alternate:
 
 split TAD detection using two contact maps and detected TADs for these two contact maps as input files
 
-	  -h, --help            show this help message and exit
-	  -c, --contact_maps CONTACT_MAP
+	-h, --help            show this help message and exit
+	-c, --contact_maps CONTACT_MAP
 		paths to Hi-C contact maps in two conditions. paths must 
 		be separated by the comma ','. (default: None)
-	  --contact_maps_aliases ALIASES
+	--contact_maps_aliases ALIASES
 		A set of short aliases for the contact map. Paths must be 
 		separated by the comma ','. (default: None)
-	  -t, --TAD TAD
+	-t, --TAD TAD
 		input files of TADs for two compared Hi-C contact maps. 
 		Paths must be separated by the comma ','. (default: None)
-	  -u, --up_cutoff UP
+	-u, --up_cutoff UP
 	  	up cutoff for two compared Hi-C contact maps, paths
 		must be separated by the comma ','. (default: 0,0)
-	  -j, --adjust_quality ADJUST_QUALITY
+	-j, --adjust_quality ADJUST_QUALITY
 	  	set as 1 to normalize sequence quality for two Hi-C contact 
 		maps, set as 0 not to normalize sequence quality for two 
 		Hi-C contact maps (default: 0)
-	  -o, --output OUTPUT
+	-o, --output OUTPUT
 	  	path to output files (default: None)
-	  -d, --split_direction DIRECTION
+	-d, --split_direction DIRECTION
 	  	set as 0: output TADs split in both two contact maps,
 		set as 1: output TADs split in contact map 1, set as 2: 
 		output TADs split in contact map 2 (default: 0)
