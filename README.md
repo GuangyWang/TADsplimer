@@ -30,10 +30,11 @@ In general, TADsplimer can be executed by following command line options:
 
 	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
-TADsplimer involves following command line options:
+TADsplimer involves following command options:
 
 split_TADs: 
-	split TAD detection using two contact maps as input files
+	
+split TAD detection using two contact maps as input files
 
 	-h, --help            show this help message and exit
 	-c, --contact_maps CONTACT_MAP
@@ -59,15 +60,36 @@ split_TADs:
 		set as 1: output TADs split in contact map1, set as 2: 
 		output TADs split in contact map2 (default: 0)
 		 
-TAD_calculator: topological domain identification
+TAD_calculator:
+
+topological domain identification
+
+	-h, --help            show this help message and exit
+	-c, --contact_map CONTACT_MAP
+		path to Hi-C contact map (default: None)
+	-u, --up UP_CUTOFF
+		up cutoff for Hi-C contact map detection (default: 0)
+	-d, --down DOWN_CUTOFF
+		down cutoff for Hi-C contact map detection (default: 0)
+	-o, --TAD_output OUTPUT
+		path for the output file of TADs (default: None)
+	-p PLOT, --TAD_plot PLOT
+		Set to 1 to plot the contact map and TAD, else set to 
+		0 to cancel this analysis. (default: 1)
+	--sub_map SUB_MAP
+		Set to 1 to output sub contact maps and TADs, else set 
+		to 0 to cancel this analysis. (default: 1)
+		 
+
+split_TADs_alternate:
+
+split TAD detection using two contact maps and detected TADs for these two contact maps as input files
 
 	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
-split_TADs_alternate: split TAD detection using two contact maps and detected TADs for these two contact maps as input files
+TAD_similarity:
 
-	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
-
-TAD_similarity: calculating four similarity scores for given regions
+calculating four similarity scores for given regions
 
 	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
