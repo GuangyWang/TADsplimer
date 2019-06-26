@@ -43,10 +43,10 @@ split TAD detection using two contact maps as input files
   	--contact_maps_aliases
                 A set of short aliases for two contact maps. Aliases
 		must be separated by the comma ','. (default: None)
-  	--up_cutoff
+  	-u, --up_cutoff UP_CUTOFF
 		paths for up cutoff of two contact maps,paths must be 
 		separated by the comma ','. (default: None)
-  	--down_cutoff
+  	-d, --down_cutoff DOWN_CUTOFF
 		paths for down cutoff of two contact maps, paths must 
 		be separated by the comma ','. (default: None)
   	-j, --adjust_quality ADJUST_QUALITY
