@@ -41,9 +41,9 @@ split_TADs:
 		the comma ','. (default: None)
   	--contact_maps_aliases
                 A set of short aliases for two contact maps. Aliases
-                must be separated by the comma ','. (default: None)
+		must be separated by the comma ','. (default: None)
   	--up_cutoff
-                paths for up cutoff of two contact maps,paths must be
+		paths for up cutoff of two contact maps,paths must be 
 		separated by the comma ','. (default: None)
   	--down_cutoff
                 paths for down cutoff of two contact maps, paths must
