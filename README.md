@@ -16,14 +16,17 @@ When executing TADsplimer, user should install following packages / libraries in
 
 User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. 
 
-Installation of TADsplimer
+Installation
 ----------
 
 The docker can be obtained from docker.io with the command.
-    -C  ConfigFile		
+		
+	docker push hbeale/mini_var_call		 
+
+The source code is available at XXXX
 
 
-Execution of TADsplimer
+Execution
 ----------
 
 
