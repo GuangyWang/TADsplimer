@@ -16,7 +16,14 @@ When executing TADsplimer, user should install following packages / libraries in
 
 User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. 
 
-Execution of basic ATAC-seq pipeline
+Installation of TADsplimer
+----------
+
+The docker can be obtained from docker.io with the command.
+  -C  ConfigFile		
+
+
+Execution of TADsplimer
 ----------
 
 
