@@ -19,11 +19,9 @@ User should include the PATH of above mentioned libraries / packages inside thei
 Installation
 ----------
 
-The docker can be obtained from docker.io with the command.
-		
-	docker push hbeale/mini_var_call		 
+The docker can be directly downloaded from dockerhub(https://hub.docker.com/r/guangywang/tadsplimer) with the command.
 
-The source code is available at XXXX
+	docker push guangywang/tadsplimer		 
 
 
 Execution
