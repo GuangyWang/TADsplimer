@@ -111,9 +111,18 @@ split TAD detection using two contact maps and detected TADs for these two conta
 		 
 TAD_similarity:
 
-calculating four similarity scores for given regions
+calculating four similarity scores for given TADs
 
-	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+	-h, --help            show this help message and exit
+	-c, --contact_maps CONTACT_MAP
+		paths to Hi-C contact maps in two conditions. paths must 
+		be separated by the comma ','. (default: None)
+	-t, --TAD TAD
+		input files of TADs for two compared Hi-C contact maps. 
+		Paths must be separated by the comma ','. (default: None)
+	-o, --output OUTPUT
+		path to output files (default: None)
+		 
 
 
 
