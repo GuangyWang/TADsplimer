@@ -379,11 +379,3 @@ if __name__ == "__main__":
         print('\nTADsplimer version 1.0.1')
         print('For a list of functions in TADsplimer, please try:\npython3 TADsplimer.py -h')
         print('')
-
-
-
-
-
-
-
-
