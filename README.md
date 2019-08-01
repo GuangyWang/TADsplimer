@@ -107,4 +107,32 @@ The following commands can be used to calculate four similarity scores for given
 
 	docker run -v /<path>/:/data/ -t tadsplimer:v1 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
 
+Input
+----------
 
+The input are two Hi-C matrices to be compared.  The Hi-C matrices 
+should have the dimension N * N. 
+
+Output
+----------
+
+The main outputs are a split TAD file and a merged TAD file.
+Columns and explaination are as follwing:
+
+### Split TAD file
+column | explaination
+------ | ------------
+1th | Row number
+2th | Start position of split TAD  
+3th | End position of split TAD
+
+### Merged TAD file
+column | explaination
+------ | ------------
+1th | P value for TAD matching
+2th | Start position of merged TAD  
+3th | End position of merged TAD
+4th | Laplacian matrix similarity score
+5th | Corner split ratio
+6th | Stratum-adjusted correlation coeffient
+7th | Image hashing similarity score
