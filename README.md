@@ -21,7 +21,7 @@ Installation
 
 The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/guangywang/tadsplimer) with the following command.
 
-	docker push guangywang/tadsplimer		 
+	docker pull guangywang/tadsplimer:v1.0.1		 
 
 
 Execution
