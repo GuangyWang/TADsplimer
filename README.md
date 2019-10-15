@@ -21,14 +21,14 @@ Installation
 
 The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/guangywang/tadsplimer) with the following command.
 
-	docker pull guangywang/tadsplimer:v1.0.1		 
+	docker pull guangywang/tadsplimer:v1.0.2		 
 
 
 Execution
 ----------
 In general, TADsplimer can be executed by following command line options:
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.1 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
 TADsplimer involves following command options:
 
@@ -62,7 +62,7 @@ split TAD detection using two contact maps as input files
 
 The following commands can be used to detect TAD split and merge events.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.1 python3 /bin/TADsplimer.py split_TADs -c /data/simulation_merge.txt,/data/simulation_split.txt --contact_maps_aliases merge,split -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py split_TADs -c /data/simulation_merge.txt,/data/simulation_split.txt --contact_maps_aliases merge,split -o /data/output
 
 TAD_calculator:
 
@@ -86,7 +86,7 @@ topological domain identification
 
 The following commands can be used to detect TADs.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.1 python3 /bin/TADsplimer.py TAD_calculator -c /data/simulation_merge.txt -u 1.7 -d 0.2 -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py TAD_calculator -c /data/simulation_merge.txt -u 1.7 -d 0.2 -o /data/output
 	 
 
 TAD_similarity:
@@ -105,7 +105,7 @@ calculating four similarity scores for given TADs
 		 
 The following commands can be used to calculate four similarity scores for given TADs.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.1 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
 
 Input
 ----------
