@@ -8,7 +8,7 @@ import TAD_split
 
 
 def printHelp():
-    print('\nTADsplimer version 1.0.1')
+    print('\nTADsplimer version 1.0.2')
     print('For help information for each function, try:\npython3 TADsplimer.py <function> -h')
     print('\nFunctions:')
     print('\tsplit_TADs:\n\t\tsplit TAD detection(input contact maps in two conditions)\n')
