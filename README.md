@@ -110,7 +110,7 @@ The following commands can be used to calculate four similarity scores for given
 Input
 ----------
 
-The input are two Hi-C matrices to be compared.  The Hi-C matrices 
+The input are two Hi-C matrices (full TSV matrices) to be compared.  The Hi-C matrices 
 should have the dimension N * N. 
 
 Output
