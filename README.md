@@ -111,7 +111,7 @@ Input
 ----------
 
 The input are two Hi-C matrices (full TSV matrices) to be compared.  The Hi-C matrices 
-should have the dimension N * N. 
+should have the dimension N * N. 10Kb is the default resolution for the input matrices.
 
 Output
 ----------
