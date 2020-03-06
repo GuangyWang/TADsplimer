@@ -136,3 +136,5 @@ column | explaination
 5th | Corner split ratio
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
+
+This source code is released under an open source licence compliant with MIT license which is approved by Open Source Licenses (OSI) (https://opensource.org/licenses ).
