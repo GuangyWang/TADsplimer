@@ -141,7 +141,7 @@ Simulation
 ----------
 In general, simulation of TADs can be executed by following command line options:
 
-	Rscript ./simulation.R -i <path of reference TAD> -o <path of output>		 
+	Rscript simulation.R -i <path of reference TAD> -o <path of output>		 
 
 Reference TADs can be downloaded from ./reference folder.
 
