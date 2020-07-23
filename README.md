@@ -137,4 +137,12 @@ column | explaination
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
 
+Simulation
+----------
+In general, simulation of TADs can be executed by following command line options:
+
+	Rscript ./simulation.R -i <path of reference TAD> -o <path of output>		 
+
+Reference TADs can be downloaded from ./reference folder.
+
 This source code is released under an open source licence compliant with MIT license which is approved by Open Source Licenses (OSI) (https://opensource.org/licenses ).
