@@ -240,4 +240,4 @@ opt = parse_args(opt_parser)
 
 tad = TAD_caller(opt$inputFile, opt$u, opt$d)
 tad = rbind(tad, c(0, 0, 0))
-write.table(tad, opt$output, , sep='\t', row.names = F, col.names = F, quote=F)
+write.table(tad, opt$output, sep='\t', row.names = F, col.names = F, quote=F)

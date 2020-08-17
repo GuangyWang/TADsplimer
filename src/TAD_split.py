@@ -379,10 +379,10 @@ def write_split_tad(TAD1, TAD2, contact_map_file1, contact_map_file2, map1, map2
         if (not os.path.exists(output)):
             print('path does not exist\n')
         else:
-            scc = similarity_score.similarity_scc(map1, map2, merged_TAD_location[:, 0:3])
+            scc = similarity_score.similarity_scc(contact_map_file1, contact_map_file2, merged_TAD_location[:, 0:3], output)
             Laplacian = similarity_score.similarity_Laplacian(map1, map2, merged_TAD_location[:, 0:3])
             hash = similarity_score.hash_similarity(map1, map2, merged_TAD_location[:, 0:3])
-            loc_u2 = np.c_[merged_TAD_location, scc[:, 3], Laplacian[:, 3], hash[:, 3]]
+            loc_u2 = np.c_[merged_TAD_location, scc[:(-1), 3], Laplacian[:, 3], hash[:, 3]]
             np.savetxt(os.path.join(output, aliases1 + '->' + aliases2 + '.' + str(start1) + '.' + end
                                     + '.split.txt'), split_TAD_location)
             np.savetxt(os.path.join(output, aliases1 + '->' + aliases2 + '.' + str(start1) + '.' + end
