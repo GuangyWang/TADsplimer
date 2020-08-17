@@ -11,8 +11,8 @@ Required packages for executing TADsplimer
 When executing TADsplimer, user should install following packages / libraries in the system:
 1. R environment (we have used 3.4.1)
 2. Python version 3.5.5
-3. The R packages: bcp, cluster, mass, essentials, spatstat, hicrep, changepoint
-4. The python packages: numpy, rpy2, cv2, PIL, scipy, imagehash
+3. The R packages: bcp, cluster, mass, essentials, spatstat, hicrep, changepoint, optparse
+4. The python packages: numpy, cv2, PIL, scipy, imagehash
 
 User should include the PATH of above mentioned libraries / packages inside their SYSTEM PATH variable. 
 
@@ -21,14 +21,14 @@ Installation
 
 The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/guangywang/tadsplimer) with the following command.
 
-	docker pull guangywang/tadsplimer:v1.0.2		 
+	docker pull guangywang/tadsplimer:v1.0.3		 
 
 
 Execution
 ----------
 In general, TADsplimer can be executed by following command line options:
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
 TADsplimer involves following command options:
 
@@ -62,7 +62,7 @@ split TAD detection using two contact maps as input files
 
 The following commands can be used to detect TAD split and merge events.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py split_TADs -c /data/simulation_merge.txt,/data/simulation_split.txt --contact_maps_aliases merge,split -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py split_TADs -c /data/simulation_merge.txt,/data/simulation_split.txt --contact_maps_aliases merge,split -o /data/output
 
 TAD_calculator:
 
@@ -86,7 +86,7 @@ topological domain identification
 
 The following commands can be used to detect TADs.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py TAD_calculator -c /data/simulation_merge.txt -u 1.7 -d 0.2 -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py TAD_calculator -c /data/simulation_merge.txt -u 1.7 -d 0.2 -o /data/output
 	 
 
 TAD_similarity:
@@ -105,7 +105,7 @@ calculating four similarity scores for given TADs
 		 
 The following commands can be used to calculate four similarity scores for given TADs.
 
-	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.2 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
+	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py TAD_similarity -c /data/simulation_merge.txt -t /data/tad.txt -o /data/output
 
 Input
 ----------
@@ -136,6 +136,11 @@ column | explaination
 5th | Corner split ratio
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
+
+# Update
+08/17/2020
+1.	remove python dependency rpy2
+2.	fix bugs for small size input file
 
 Simulation
 ----------

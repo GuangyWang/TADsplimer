@@ -278,27 +278,29 @@ def split_region(f1, f2, split_TAD, merged_TADs, p1, p2, fold):
             if d[1] in idx:
                 reg = np.append(reg, d[0], axis=0)
         return reg
-    
-    map1 = np.loadtxt(f1)
-    map2 = np.loadtxt(f2)
-    avr1, avr2, average_diff = average_interaction(split_TAD, map1, map2, p1,
-                                                 p2)
-    ratio1 = get_corner_ratio(avr1, 1)
-    ratio2 = get_corner_ratio(avr2, fold)
-    idx, ratio_diff = get_split_region(ratio1, ratio2)
-    ratio_diff = np.array(ratio_diff)
+    if os.stat(f1).st_size != 0 and os.stat(f2).st_size != 0:
+        map1 = np.loadtxt(f1)
+        map2 = np.loadtxt(f2)
+        avr1, avr2, average_diff = average_interaction(split_TAD, map1, map2, p1,
+                                                     p2)
+        ratio1 = get_corner_ratio(avr1, 1)
+        ratio2 = get_corner_ratio(avr2, fold)
+        idx, ratio_diff = get_split_region(ratio1, ratio2)
+        ratio_diff = np.array(ratio_diff)
 
-    if len(idx) > 0:
-        divid1 = get_interaction(idx, avr1)
-        divid2 = get_interaction(idx, avr2)
-        merged_TAD_location = merged_TADs[idx, :]
-        merged_TAD_location = np.c_[merged_TAD_location, ratio_diff]
-        split_TAD_location = get_split_TAD(split_TAD, idx)
-        split_TAD_location = np.insert(split_TAD_location, 0, np.array(range(split_TAD_location.shape[0])).transpose(),
-                                       axis=1)
-        return divid1, divid2, split_TAD_location, merged_TAD_location
+        if len(idx) > 0:
+            divid1 = get_interaction(idx, avr1)
+            divid2 = get_interaction(idx, avr2)
+            merged_TAD_location = merged_TADs[idx, :]
+            merged_TAD_location = np.c_[merged_TAD_location, ratio_diff]
+            split_TAD_location = get_split_TAD(split_TAD, idx)
+            split_TAD_location = np.insert(split_TAD_location, 0, np.array(range(split_TAD_location.shape[0])).transpose(),
+                                           axis=1)
+            return divid1, divid2, split_TAD_location, merged_TAD_location
+        else:
+            return 0, 0, 0, 0
     else:
-        return 0, 0, 0, 0
+        print(f1+' or '+f2+' is empty\n')
 
 
 def find_t1(TAD):
@@ -377,10 +379,10 @@ def write_split_tad(TAD1, TAD2, contact_map_file1, contact_map_file2, map1, map2
         if (not os.path.exists(output)):
             print('path does not exist\n')
         else:
-            scc = similarity_score.similarity_scc(map1, map2, merged_TAD_location[:, 0:3])
+            scc = similarity_score.similarity_scc(contact_map_file1, contact_map_file2, merged_TAD_location[:, 0:3], output)
             Laplacian = similarity_score.similarity_Laplacian(map1, map2, merged_TAD_location[:, 0:3])
             hash = similarity_score.hash_similarity(map1, map2, merged_TAD_location[:, 0:3])
-            loc_u2 = np.c_[merged_TAD_location, scc[:, 3], Laplacian[:, 3], hash[:, 3]]
+            loc_u2 = np.c_[merged_TAD_location, scc[:(-1), 3], Laplacian[:, 3], hash[:, 3]]
             np.savetxt(os.path.join(output, aliases1 + '->' + aliases2 + '.' + str(start1) + '.' + end
                                     + '.split.txt'), split_TAD_location)
             np.savetxt(os.path.join(output, aliases1 + '->' + aliases2 + '.' + str(start1) + '.' + end
@@ -423,15 +425,18 @@ def merge_outputfile(aliases1, aliases2, path):
                     TAD = np.reshape(TAD, (1, 3))
                 except:
                     pass
-                TAD[:, 1:3] = TAD[:, 1:3] + int(start_loc)
-                split_region = np.vstack([split_region, TAD])
+                if TAD.size != 0:
+                    TAD[:, 1:3] = TAD[:, 1:3] + int(start_loc)
+                    split_region = np.vstack([split_region, TAD])
             else:
                 try:
                     TAD = np.reshape(TAD, (1, 7))
                 except:
                     pass
-                TAD[:, 1:3] = TAD[:, 1:3] + int(start_loc)
-                merge_region = np.vstack([merge_region, TAD])
+                if TAD.size != 0:
+                    TAD[:, 1:3] = TAD[:, 1:3] + int(start_loc)
+                    merge_region = np.vstack([merge_region, TAD])
+
 
     split_region = split_region[1:, :]
     merge_region = merge_region[1:, :]

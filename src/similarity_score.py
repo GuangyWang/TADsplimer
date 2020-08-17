@@ -1,44 +1,20 @@
-import rpy2.robjects as robjects
-import rpy2.robjects.numpy2ri
-from rpy2.robjects import pandas2ri
 import numpy as np
 from scipy.sparse.linalg import eigsh
 import imagehash
 from PIL import Image
+import os
 
 
-def similarity_scc(map1, map2, TAD):
-    r = robjects.r
-
-    r('''
-        library(hicrep)
-        hicrep_similarity<-function(map1, map2, TAD){
-          scc = c()
-          for(i in 1:nrow(TAD)){
-            start = TAD[i, 2]
-            end = TAD[i, 3]
-            hic1 = data.frame('chr', 1:(end - start+1), 2:(end - start+2), map1[start:end,start:end])
-            hic2 = data.frame('chr', 1:(end - start+1), 2:(end - start+2), map2[start:end,start:end])
-            processed <- prep(hic1, hic2, 1, 0, 5)
-            scc.out = get.scc(processed, 1, 5)
-            scc=c(scc,scc.out$scc)
-          }
-          TAD2 = data.frame(TAD,scc)
-          return(TAD2)
-        }
-    ''')
-
-    rpy2.robjects.numpy2ri.activate()
-    pandas2ri.activate()
-
-    nr, nc = TAD.shape
-    TAD_r = r.matrix(TAD, nrow=nr, ncol=nc)
-    r.assign("TAD1", TAD_r)
-
-    hicrep_similarity = r('hicrep_similarity')
-    scc = hicrep_similarity(map1, map2, TAD_r)
-    scc = pandas2ri.ri2py(scc)
-    scc = scc.values
+def similarity_scc(contact_map_file1, contact_map_file2, TAD, output):
+    np.savetxt(os.path.join(output, 'TAD.tmp'), TAD)
+    print(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'similarity_scc.R'))
+    print(contact_map_file1)
+    print(contact_map_file2)
+    print(os.path.join(output, 'TAD.tmp'))
+    os.system(
+        'Rscript ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), 'similarity_scc.R') +
+        ' -a ' + contact_map_file1 + ' -b ' + contact_map_file2 + ' -t ' + os.path.join(output, 'TAD.tmp'))
+    scc = np.loadtxt(os.path.join(output, 'TAD.tmp.scc.txt'))
     return scc
 
 
