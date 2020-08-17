@@ -5,10 +5,11 @@ import numpy as np
 import similarity_score
 import TAD_calling
 import TAD_split
+import shutil
 
 
 def printHelp():
-    print('\nTADsplimer version 1.0.2')
+    print('\nTADsplimer version 1.0.1')
     print('For help information for each function, try:\npython3 TADsplimer.py <function> -h')
     print('\nFunctions:')
     print('\tsplit_TADs:\n\t\tsplit TAD detection(input contact maps in two conditions)\n')
@@ -227,6 +228,12 @@ def split_TADs(command='split_TADs'):
                         help="set as 0: output TADs split in both two contact maps, set as 1: output TADs split in "
                              "contact map1, set as 2: output TADs split in contact map2")
 
+    ### add
+    parser.add_argument('-t', '--tmp', dest="tmp", default=0, type=int,
+                        help="set as 0: save temporary file in the output folder, set as 1: not save temporary file in"
+                             "the output folder")
+
+
     args = parser.parse_args()
 
     file = args.contact_map.split(',')
@@ -314,6 +321,14 @@ def split_TADs(command='split_TADs'):
     if b[1].shape != 0:
         np.savetxt(os.path.join(args.output, aliases[1] + '->' + aliases[0] + '.all.split.txt'), b[1])
 
+    shutil.move(os.path.join(args.output, aliases[0], aliases[0]+'.TAD.merge.txt'),
+                os.path.join(args.output, aliases[0]+'.TAD.txt'))
+    shutil.move(os.path.join(args.output, aliases[1], aliases[1] + '.TAD.merge.txt'),
+                os.path.join(args.output, aliases[1] + '.TAD.txt'))
+
+    if args.tmp == 1:
+        shutil.rmtree(os.path.join(args.output, aliases[0]))
+        shutil.rmtree(os.path.join(args.output, aliases[1]))
 
 
 
