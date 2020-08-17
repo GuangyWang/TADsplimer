@@ -137,7 +137,7 @@ column | explaination
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
 
-# Update
+## Update
 08/17/2020
 1.	remove python dependency rpy2
 2.	fix bugs for small size input file
