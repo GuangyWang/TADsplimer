@@ -12,7 +12,10 @@ def TAD_calling(file, up, down):
             ' -f ' + file + ' -u ' + str(up) + ' -d ' + str(down) +
             ' -o ' + file + '.boundary.txt')
         TAD = np.loadtxt(file + '.boundary.txt')
-        TAD = TAD[:-1, :]
+        try:
+            TAD = TAD[:-1, :]
+        except:
+            TAD = np.array([0, 0, 0])
     else:
         TAD = np.array([0, 0, 0])
     return(TAD)
@@ -110,6 +113,7 @@ def file_split(file, outfile, length=1000, print_subcontact=0, aliases='None'):
     else:
         out = os.path.join(outfile, filename + '.' + str(0) + '.' + str(r) + '.subchr')
         files.append(out)
+        mean_list.append(np.mean(contact_map))
         if print_subcontact != 1:
             np.savetxt(out, contact_map, delimiter='\t')
     mean_list = np.array(mean_list)
@@ -153,9 +157,6 @@ def subTAD_calling(path, up, down, plt=1, prnt=1, aliase='None'):
     tad = np.empty(shape=[0, 3])
     for file in dirs:
         if file[-7:] == '.subchr':
-
-            print(file)
-
             start = file.split('.')[-3]
             tad_temp = TAD_calling(os.path.join(path, file), up, down)
             tad_location = tad_temp
@@ -186,4 +187,7 @@ def subTAD_calling(path, up, down, plt=1, prnt=1, aliase='None'):
         else:
             np.savetxt(os.path.join(path, aliase + '.TAD.merge.txt'), unique_tad, delimiter="\t")
     else:
-        print('No split/merged TAD\n')
+        if aliase == 'None':
+            np.savetxt(os.path.join(path, 'TAD.merge.txt'), np.array([0, 0, 0]), delimiter="\t")
+        else:
+            np.savetxt(os.path.join(path, aliase + '.TAD.merge.txt'), np.array([0, 0, 0]), delimiter="\t")
