@@ -41,19 +41,49 @@ def file_split(file, outfile, length=1000, print_subcontact=0, aliases='None'):
     mean_list = []
     files = []
 
-    flag = 0
-    if (num*length+length/2) > c:
-        flag = 1
+    if num>0:
+        flag = 0
+        if (num*length+length/2) > c:
+            flag = 1
 
-    if flag == 1:
-        for i in range(num):
-            sub_contact = contact_map[(i * length):((i + 1) * length), (i * length):((i + 1) * length)]
-            out = os.path.join(outfile, filename + '.' + str(i * length) + '.' + str((i + 1) * length) + '.subchr')
+        if flag == 1:
+            for i in range(num):
+                sub_contact = contact_map[(i * length):((i + 1) * length), (i * length):((i + 1) * length)]
+                out = os.path.join(outfile, filename + '.' + str(i * length) + '.' + str((i + 1) * length) + '.subchr')
+                files.append(out)
+                mean_list.append(np.mean(sub_contact))
+                if print_subcontact != 1:
+                    np.savetxt(out, sub_contact, delimiter='\t')
+                if i != (num-1):
+                    sub_contact2 = contact_map[int(i * length+length/2):int((i + 1) * length+length/2),
+                                   int(i * length+length/2):int((i + 1) * length+length/2)]
+                    out2 = os.path.join(outfile,
+                                       filename + '.' + str(int(i * length+length/2)) + '.' + str(int((i + 1) * length + length/2)) + '.subchr')
+                    files.append(out2)
+                    mean_list.append(np.mean(sub_contact2))
+                    if print_subcontact != 1:
+                        np.savetxt(out2, sub_contact2, delimiter='\t')
+            sub_contact = contact_map[(num * length):c, (num * length):c]
+            out = os.path.join(outfile, filename + '.' + str(num * length) + '.' + str(c) + '.subchr')
             files.append(out)
             mean_list.append(np.mean(sub_contact))
             if print_subcontact != 1:
                 np.savetxt(out, sub_contact, delimiter='\t')
-            if i != (num-1):
+            sub_contact2 = contact_map[int((num-1) * length + length / 2):int(((num-1) + 1) * length + length / 2),
+                           int((num-1) * length + length / 2):int(((num-1) + 1) * length + length / 2)]
+            out2 = os.path.join(outfile, filename + '.' + str(int((num-1) * length + length / 2)) + '.' + str(int(((num-1) + 1) * length + length / 2)) + '.subchr')
+            files.append(out2)
+            mean_list.append(np.mean(sub_contact2))
+            if print_subcontact != 1:
+                np.savetxt(out2, sub_contact2, delimiter='\t')
+        else:
+            for i in range(num):
+                sub_contact = contact_map[(i * length):((i + 1) * length), (i * length):((i + 1) * length)]
+                out = os.path.join(outfile, filename + '.' + str(i * length) + '.' + str((i + 1) * length) + '.subchr')
+                files.append(out)
+                mean_list.append(np.mean(sub_contact))
+                if print_subcontact != 1:
+                    np.savetxt(out, sub_contact, delimiter='\t')
                 sub_contact2 = contact_map[int(i * length+length/2):int((i + 1) * length+length/2),
                                int(i * length+length/2):int((i + 1) * length+length/2)]
                 out2 = os.path.join(outfile,
@@ -62,50 +92,26 @@ def file_split(file, outfile, length=1000, print_subcontact=0, aliases='None'):
                 mean_list.append(np.mean(sub_contact2))
                 if print_subcontact != 1:
                     np.savetxt(out2, sub_contact2, delimiter='\t')
-        sub_contact = contact_map[(num * length):c, (num * length):c]
-        out = os.path.join(outfile, filename + '.' + str(num * length) + '.' + str(c) + '.subchr')
-        files.append(out)
-        mean_list.append(np.mean(sub_contact))
-        if print_subcontact != 1:
-            np.savetxt(out, sub_contact, delimiter='\t')
-        sub_contact2 = contact_map[int((num-1) * length + length / 2):int(((num-1) + 1) * length + length / 2),
-                       int((num-1) * length + length / 2):int(((num-1) + 1) * length + length / 2)]
-        out2 = os.path.join(outfile, filename + '.' + str(int((num-1) * length + length / 2)) + '.' + str(int(((num-1) + 1) * length + length / 2)) + '.subchr')
-        files.append(out2)
-        mean_list.append(np.mean(sub_contact2))
-        if print_subcontact != 1:
-            np.savetxt(out2, sub_contact2, delimiter='\t')
-    else:
-        for i in range(num):
-            sub_contact = contact_map[(i * length):((i + 1) * length), (i * length):((i + 1) * length)]
-            out = os.path.join(outfile, filename + '.' + str(i * length) + '.' + str((i + 1) * length) + '.subchr')
+            sub_contact = contact_map[(num * length):c, (num * length):c]
+            out = os.path.join(outfile, filename + '.' + str(num * length) + '.' + str(c) + '.subchr')
             files.append(out)
             mean_list.append(np.mean(sub_contact))
             if print_subcontact != 1:
                 np.savetxt(out, sub_contact, delimiter='\t')
-            sub_contact2 = contact_map[int(i * length+length/2):int((i + 1) * length+length/2),
-                           int(i * length+length/2):int((i + 1) * length+length/2)]
+            sub_contact2 = contact_map[int(num * length + length / 2):int((num + 1) * length + length / 2),
+                           int(num * length + length / 2):int((num + 1) * length + length / 2)]
             out2 = os.path.join(outfile,
-                               filename + '.' + str(int(i * length+length/2)) + '.' + str(int((i + 1) * length + length/2)) + '.subchr')
+                                filename + '.' + str(int(num * length + length / 2)) + '.' + str(int(
+                                    (num + 1) * length + length / 2)) + '.subchr')
             files.append(out2)
             mean_list.append(np.mean(sub_contact2))
             if print_subcontact != 1:
                 np.savetxt(out2, sub_contact2, delimiter='\t')
-        sub_contact = contact_map[(num * length):c, (num * length):c]
-        out = os.path.join(outfile, filename + '.' + str(num * length) + '.' + str(c) + '.subchr')
+    else:
+        out = os.path.join(outfile, filename + '.' + str(0) + '.' + str(r) + '.subchr')
         files.append(out)
-        mean_list.append(np.mean(sub_contact))
         if print_subcontact != 1:
-            np.savetxt(out, sub_contact, delimiter='\t')
-        sub_contact2 = contact_map[int(num * length + length / 2):int((num + 1) * length + length / 2),
-                       int(num * length + length / 2):int((num + 1) * length + length / 2)]
-        out2 = os.path.join(outfile,
-                            filename + '.' + str(int(num * length + length / 2)) + '.' + str(int(
-                                (num + 1) * length + length / 2)) + '.subchr')
-        files.append(out2)
-        mean_list.append(np.mean(sub_contact2))
-        if print_subcontact != 1:
-            np.savetxt(out2, sub_contact2, delimiter='\t')
+            np.savetxt(out, contact_map, delimiter='\t')
     mean_list = np.array(mean_list)
     mean_list = mean_list[~np.isnan(mean_list)]
     cutoff_up = np.median(np.array(mean_list) / 0.22)
