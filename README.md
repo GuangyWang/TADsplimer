@@ -30,6 +30,8 @@ In general, TADsplimer can be executed by following command line options:
 
 	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
+Please make sure output filder is empty or doesn't exit.
+
 TADsplimer involves following command options:
 
 split_TADs: 
