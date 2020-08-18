@@ -11,8 +11,8 @@ def TAD_calling(file, up, down):
             'Rscript '+os.path.join(os.path.dirname(os.path.realpath(__file__)), 'TAD_calling.R') +
             ' -f ' + file + ' -u ' + str(up) + ' -d ' + str(down) +
             ' -o ' + file + '.boundary.txt')
-        TAD = np.loadtxt(file + '.boundary.txt')
         try:
+            TAD = np.loadtxt(file + '.boundary.txt')
             TAD = TAD[:-1, :]
         except:
             TAD = np.array([0, 0, 0])

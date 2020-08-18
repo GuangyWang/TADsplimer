@@ -30,6 +30,8 @@ In general, TADsplimer can be executed by following command line options:
 
 	docker run -v /<path>/:/data/ -t guangywang/tadsplimer:v1.0.3 python3 /bin/TADsplimer.py  <command>  <path> [optional arguments]		 
 
+Please make sure output filder is empty or doesn't exit.
+
 TADsplimer involves following command options:
 
 split_TADs: 
@@ -137,7 +139,7 @@ column | explaination
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
 
-# Update
+## Update
 08/17/2020
 1.	remove python dependency rpy2
 2.	fix bugs for small size input file
