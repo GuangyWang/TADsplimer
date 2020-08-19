@@ -9,7 +9,7 @@ import shutil
 
 
 def printHelp():
-    print('\nTADsplimer version 1.0.1')
+    print('\nTADsplimer version 1.0.3')
     print('For help information for each function, try:\npython3 TADsplimer.py <function> -h')
     print('\nFunctions:')
     print('\tsplit_TADs:\n\t\tsplit TAD detection(input contact maps in two conditions)\n')
@@ -391,7 +391,7 @@ if __name__ == "__main__":
         else:
             printHelp()
     else:
-        print('\nTADsplimer version 1.0.1')
+        print('\nTADsplimer version 1.0.3')
         print('For a list of functions in TADsplimer, please try:\npython3 TADsplimer.py -h')
         print('')
 
