@@ -5,6 +5,8 @@ Introduction
 
 This pipeline is designed for automated end-to-end analysising TAD splitting and merging. 
 
+If you have any questions or issues, you can ask in "Issues" of this Git or send email to Guangyu.Wang@childrens.harvard.edu or guangywang@gmail.com.
+
 Required packages for executing TADsplimer
 ----------
 
@@ -153,3 +155,10 @@ In general, simulation of TADs can be executed by following command line options
 Reference TADs can be downloaded from ./reference folder.
 
 This source code is released under an open source licence compliant with MIT license which is approved by Open Source Licenses (OSI) (https://opensource.org/licenses ).
+
+
+How to Cite?
+----------
+Please cite the following required publication.
+
+Wang, G., Meng, Q., Xia, B. et al. TADsplimer reveals splits and mergers of topologically associating domains for epigenetic regulation of transcription. Genome Biol 21, 84 (2020). https://doi.org/10.1186/s13059-020-01992-7
