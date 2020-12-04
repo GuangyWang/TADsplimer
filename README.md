@@ -124,6 +124,7 @@ The main outputs are a split TAD file and a merged TAD file.
 Columns and explaination are as follwing:
 
 ### Split TAD file
+Files of *.all.split.txt
 column | explaination
 ------ | ------------
 1th | Row number
@@ -131,6 +132,7 @@ column | explaination
 3th | End position of split TAD
 
 ### Merged TAD file
+Files of *.all.merge.txt
 column | explaination
 ------ | ------------
 1th | P value for TAD matching
