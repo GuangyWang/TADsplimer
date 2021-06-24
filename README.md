@@ -26,8 +26,9 @@ The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/g
 	docker pull guangywang/tadsplimer:v1.0.3		 
 
 Conda setup (Contribute by Jimin Tan, Thanks):
-conda create --prefix ./tadsplimer --file tadsplimer_pkgs.txt 
-conda activate ./tadsplimer
+
+	conda create --prefix ./tadsplimer --file tadsplimer_pkgs.txt
+	conda activate ./tadsplimer
 
 Execution
 ----------
