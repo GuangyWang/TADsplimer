@@ -25,6 +25,9 @@ The docker can be directly downloaded from dockerhub (https://hub.docker.com/r/g
 
 	docker pull guangywang/tadsplimer:v1.0.3		 
 
+Conda setup (Contribute by Jimin Tan, Thanks):
+conda create --prefix ./tadsplimer --file tadsplimer_pkgs.txt 
+conda activate ./tadsplimer
 
 Execution
 ----------
@@ -142,6 +145,8 @@ column | explaination
 5th | Corner split ratio
 6th | Stratum-adjusted correlation coeffient
 7th | Image hashing similarity score
+
+In the output files, the "A->B.all.merge.txt" is the coordinate of merged TADs comparing A sample to B sample. The file "A->B.all.split.txt" is the coordinate of split TADs comparing A sample to B sample.
 
 ## Update
 08/17/2020
