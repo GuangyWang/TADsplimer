@@ -1,4 +1,4 @@
-# TADsplimer - a pipeline for analysising TAD splitting and merging
+# TADsplimer - a pipeline for analyzing TAD splitting and merging
 
 Introduction
 ----------
