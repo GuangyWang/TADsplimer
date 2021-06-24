@@ -3,7 +3,7 @@
 Introduction
 ----------
 
-This pipeline is designed for automated end-to-end analysising TAD splitting and merging. 
+This pipeline is designed for automated end-to-end analyzing TAD splitting and merging. 
 
 If you have any questions or issues, you can ask in "Issues" of this Git or send email to Guangyu.Wang@childrens.harvard.edu or guangywang@gmail.com.
 
